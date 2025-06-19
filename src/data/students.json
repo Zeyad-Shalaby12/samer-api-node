@@ -1,18 +1,3 @@
 [
-  {
-    "id": "1c2a0b4a-bac6-457c-97ca-25d134dd1d53",
-    "name": "سيسشيسشي",
-    "studentNumber": "01555942675",
-    "parentPhone": "01000530258",
-    "createdAt": "2025-06-19T01:13:32.397Z",
-    "qrCodePath": "/qrcodes/1c2a0b4a-bac6-457c-97ca-25d134dd1d53-01555942675.svg"
-  },
-  {
-    "id": "c7a8d6c8-8a7b-4a52-8983-a20d079587ec",
-    "name": "سيسشيسشسيسشيشي",
-    "studentNumber": "01554555942675",
-    "parentPhone": "01000530258",
-    "createdAt": "2025-06-19T01:13:45.763Z",
-    "qrCodePath": "/qrcodes/c7a8d6c8-8a7b-4a52-8983-a20d079587ec-01554555942675.svg"
-  }
+  
 ]

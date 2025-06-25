@@ -4,15 +4,9 @@ class StudentController {
     async getAllStudents(req, res) {
         try {
             const students = await StudentModel.getAllStudents();
-            res.json({
-                status: 'success',
-                data: students
-            });
+            res.json({ status: 'success', data: students });
         } catch (error) {
-            res.status(500).json({
-                status: 'error',
-                message: error.message
-            });
+            res.status(500).json({ status: 'error', message: error.message });
         }
     }
 
@@ -20,20 +14,11 @@ class StudentController {
         try {
             const student = await StudentModel.getStudentById(req.params.id);
             if (!student) {
-                return res.status(404).json({
-                    status: 'error',
-                    message: 'Student not found'
-                });
+                return res.status(404).json({ status: 'error', message: 'Student not found' });
             }
-            res.json({
-                status: 'success',
-                data: student
-            });
+            res.json({ status: 'success', data: student });
         } catch (error) {
-            res.status(500).json({
-                status: 'error',
-                message: error.message
-            });
+            res.status(500).json({ status: 'error', message: error.message });
         }
     }
 
@@ -46,22 +31,16 @@ class StudentController {
                     message: 'Name, student number, and parent phone are required'
                 });
             }
-            
+
             const newStudent = await StudentModel.createStudent({
                 name,
                 studentNumber,
                 parentPhone
             });
 
-            res.status(201).json({
-                status: 'success',
-                data: newStudent
-            });
+            res.status(201).json({ status: 'success', data: newStudent });
         } catch (error) {
-            res.status(500).json({
-                status: 'error',
-                message: error.message
-            });
+            res.status(500).json({ status: 'error', message: error.message });
         }
     }
 
@@ -69,20 +48,11 @@ class StudentController {
         try {
             const updatedStudent = await StudentModel.updateStudent(req.params.id, req.body);
             if (!updatedStudent) {
-                return res.status(404).json({
-                    status: 'error',
-                    message: 'Student not found'
-                });
+                return res.status(404).json({ status: 'error', message: 'Student not found' });
             }
-            res.json({
-                status: 'success',
-                data: updatedStudent
-            });
+            res.json({ status: 'success', data: updatedStudent });
         } catch (error) {
-            res.status(500).json({
-                status: 'error',
-                message: error.message
-            });
+            res.status(500).json({ status: 'error', message: error.message });
         }
     }
 
@@ -90,20 +60,11 @@ class StudentController {
         try {
             const deleted = await StudentModel.deleteStudent(req.params.id);
             if (!deleted) {
-                return res.status(404).json({
-                    status: 'error',
-                    message: 'Student not found'
-                });
+                return res.status(404).json({ status: 'error', message: 'Student not found' });
             }
-            res.json({
-                status: 'success',
-                message: 'Student deleted successfully'
-            });
+            res.json({ status: 'success', message: 'Student deleted successfully' });
         } catch (error) {
-            res.status(500).json({
-                status: 'error',
-                message: error.message
-            });
+            res.status(500).json({ status: 'error', message: error.message });
         }
     }
 
@@ -111,19 +72,13 @@ class StudentController {
         try {
             const qrCode = await StudentModel.getStudentQRCode(req.params.id);
             if (!qrCode) {
-                return res.status(404).json({
-                    status: 'error',
-                    message: 'Student not found'
-                });
+                return res.status(404).json({ status: 'error', message: 'Student not found' });
             }
-            
+
             res.setHeader('Content-Type', 'image/svg+xml');
             res.send(qrCode);
         } catch (error) {
-            res.status(500).json({
-                status: 'error',
-                message: error.message
-            });
+            res.status(500).json({ status: 'error', message: error.message });
         }
     }
 }
